@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cpu-activity-monitor", "cpu-activity-monitor\cpu-activity-monitor.csproj", "{DFEAAB5F-E73D-43BE-81C6-C355964C8910}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFEAAB5F-E73D-43BE-81C6-C355964C8910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEAAB5F-E73D-43BE-81C6-C355964C8910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEAAB5F-E73D-43BE-81C6-C355964C8910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEAAB5F-E73D-43BE-81C6-C355964C8910}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FA07844-92F6-4B16-A720-5EE7696076A9}
+	EndGlobalSection
+EndGlobal
