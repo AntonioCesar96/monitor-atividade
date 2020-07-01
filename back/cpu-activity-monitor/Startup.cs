@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using cpu_activity_monitor.Hubs;
+using cpu_activity_monitor.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,19 @@ namespace cpu_activity_monitor
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .WithOrigins("http://localhost:4201")
+                        .AllowCredentials());
+            });
+
+            services.AddScoped<MonitorService>();
+            services.AddScoped<ProcessoService>();
+
             services.AddControllers();
             services.AddSignalR(o => { o.EnableDetailedErrors = true; });
         }
@@ -37,9 +51,8 @@ namespace cpu_activity_monitor
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("CorsPolicy");
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
