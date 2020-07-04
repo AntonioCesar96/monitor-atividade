@@ -28,6 +28,7 @@ body {
 .table-content {  
   height: 500px;
   overflow: auto;
+  background-color: #38393a;
 }
 
 .table {
@@ -79,6 +80,7 @@ body {
         border-bottom: 1px solid rgba(255, 255, 255, 0.16);
         text-align: center;
         position: relative;
+        cursor: pointer;
 
         &:after {
           content: "";

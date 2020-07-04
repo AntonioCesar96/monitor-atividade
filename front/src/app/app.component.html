@@ -15,10 +15,14 @@
       <table class="table">
         <thead>
           <tr>
-            <th><span>Nome do Processo</span></th>
-            <th><span>CPU</span></th>
-            <th><span>Memória</span></th>
-            <th><span>Threads</span></th>
+            <th>
+              <span (click)="alternarNomeProcesso = !alternarNomeProcesso; ordenar(enumOrdenarPor.NomeProcesso);">Nome do Processo</span></th>
+            <th>
+              <span (click)="alternarCpu = !alternarCpu; ordenar(enumOrdenarPor.Cpu)">CPU</span></th>
+            <th>
+              <span (click)="alternarMemoria = !alternarMemoria; ordenar(enumOrdenarPor.Memoria)">Memória</span></th>
+            <th>
+              <span (click)="alternarThreads = !alternarThreads; ordenar(enumOrdenarPor.Threads)">Threads</span></th>
           </tr>
         </thead>
 
