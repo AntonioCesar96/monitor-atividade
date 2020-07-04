@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
-  tempoParaBuscarDadosNovamente = 200;
+  tempoParaBuscarDadosNovamente = 100;
   enumOrdenarPor = OrdenarPor;
   monitor: any;
   ordenarPor = OrdenarPor.Cpu;

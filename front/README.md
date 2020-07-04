@@ -1,27 +1,29 @@
-# CpuMonitor
+# Monitor de Atividades
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+![Preview-Screens](https://github.com/AntonioCesar96/monitor-atividade/blob/master/telas.gif)
 
-## Development server
+## Sobre este projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A ideia desse aplicativo é poder visualizar os processos e algumas informações da máquina.
 
-## Code scaffolding
+## Por quê?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este projeto faz parte do meu portfólio pessoal.
 
-## Build
+Email: antoniocss19@gmail.com
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+LinkedIn: [LinkedIn](https://www.linkedin.com/in/antonio-cesar-9a78a7ba/).
 
-## Running unit tests
+## Construído com
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [Angular](https://angular.io/) - Angular
+- [.NET Core](https://dotnet.microsoft.com/) - .NET Core
+- [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) - SignalR
 
-## Running end-to-end tests
+## Observação
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+É necessário rodar o back-end com permissão de administrador da máquina.
 
-## Further help
+## Licença
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](https://github.com/AntonioCesar96/monitor-atividade/blob/master/LICENSE.md) para obter detalhes.
