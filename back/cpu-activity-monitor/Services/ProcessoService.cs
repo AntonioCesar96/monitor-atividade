@@ -37,21 +37,19 @@ namespace cpu_activity_monitor.Services
 
         private decimal ObterUsoCpuDoProcesso(Process prc)
         {
-            TimeSpan wallTime;
             try
             {
-                wallTime = DateTime.Now - prc.StartTime;
+                TimeSpan wallTime = DateTime.Now - prc.StartTime;
+                if (prc.HasExited) wallTime = prc.ExitTime - prc.StartTime;
+                var procTime = prc.TotalProcessorTime;
+                var cpuUsage = (decimal)(procTime.TotalMilliseconds / wallTime.TotalMilliseconds) / Environment.ProcessorCount;
+
+                return Math.Round(cpuUsage * 100, 2);
             }
             catch (Exception e)
             {
                 return 0;
             }
-
-            if (prc.HasExited) wallTime = prc.ExitTime - prc.StartTime;
-            var procTime = prc.TotalProcessorTime;
-            var cpuUsage = (decimal)(procTime.TotalMilliseconds / wallTime.TotalMilliseconds) / Environment.ProcessorCount;
-
-            return Math.Round(cpuUsage * 100, 2);
         }
     }
 }

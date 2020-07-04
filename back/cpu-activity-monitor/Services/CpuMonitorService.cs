@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Management;
 
 namespace cpu_activity_monitor.Hubs
 {
     public class CpuMonitorService
     {
-        public decimal Obter()
-        {
-            List<PerformanceCounter> cpuCounters = new List<PerformanceCounter>();
-            var cores = 0;
+        static List<PerformanceCounter> cpuCounters = new List<PerformanceCounter>();
+        static int cores = 0;
 
-            foreach (var item in new System.Management.ManagementObjectSearcher("Select * from Win32_Processor").Get())
+        public float Obter()
+        {
+            foreach (var item in new ManagementObjectSearcher("Select * from Win32_Processor").Get())
             {
                 cores = cores + int.Parse(item["NumberOfCores"].ToString());
             }
 
-            int procCount = System.Environment.ProcessorCount;
+            int procCount = Environment.ProcessorCount;
             for (int i = 0; i < procCount; i++)
             {
                 PerformanceCounter pc = new PerformanceCounter("Processor", "% Processor Time", i.ToString());
@@ -25,17 +26,15 @@ namespace cpu_activity_monitor.Hubs
 
             try
             {
-                decimal sum = 0;
+                float sum = 0;
                 foreach (PerformanceCounter c in cpuCounters)
                 {
-                    sum = sum + (decimal) c.NextValue();
+                    sum = sum + c.NextValue();
                 }
                 sum = sum / (cores);
-
-                return Math.Round(sum, 2);
+                return sum >= 100 ? 100 : sum;
             }
             catch (Exception e) { }
-
             return 0;
         }
     }

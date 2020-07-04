@@ -1,46 +1,77 @@
-<table>
-    <thead>
-        <tr>
-            <th>MemoriaDisponivel</th>
-            <th>MemoriaUsada</th>
-            <th>MemoriaTotalDoComputador</th>
-            <th>MemoriaDisponivelPorcentagem</th>
-            <th>MemoriaOcupadaPorcentagem</th>
-            <th>CpuUsoMaquina</th>
-        </tr>
-    </thead>
+<div class="container">
 
-    <tbody>
-        <tr>
-            <td>{{ monitor?.memoriaDisponivel }}</td>
-            <td>{{ monitor?.memoriaUsada }}</td>
-            <td>{{ monitor?.memoriaTotalDoComputador }}</td>
-            <td>{{ monitor?.memoriaDisponivelPorcentagem }}</td>
-            <td>{{ monitor?.memoriaOcupadaPorcentagem }}</td>
-            <td>{{ monitor?.cpuUsoMaquina }}</td>
-        </tr>
-    </tbody>
-</table>
+  <div class="table-wrapper">
+    <div class="table-header">
+      <div class="circulos">
+        <span class="circulo vermelho"></span>
+        <span class="circulo amarelo"></span>
+        <span class="circulo verde"></span>
+      </div>
 
-<br>
-<br>
+      <div>Monitor de Atividades</div>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th>Nome do Processo</th>
-            <th>Cpu</th>
-            <th>Memoria</th>
-            <th>Threads</th>
-        </tr>
-    </thead>
+    <div class="table-content">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span>Nome do Processo</span></th>
+            <th><span>CPU</span></th>
+            <th><span>Memória</span></th>
+            <th><span>Threads</span></th>
+          </tr>
+        </thead>
 
-    <tbody>
-        <tr *ngFor="let item of monitor?.processos">
+        <tbody>
+          <tr *ngFor="let item of monitor?.processos">
             <td>{{ item.nomeDoProcesso }}</td>
             <td>{{ item.cpuFormatado }}</td>
             <td>{{ item.ramFormatado }}</td>
             <td>{{ item.threads }}</td>
-        </tr>
-    </tbody>
-</table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-footer">
+
+      <div class="info-wrapper">
+        <div class="memoria-wrapper">
+          <div class="linha">
+            <span>Memória total:</span>
+            <span>{{ monitor?.memoriaTotalDoComputador }}</span>
+          </div>          
+          <div class="linha">
+            <span>Memória disponível:</span>
+            <span>{{ monitor?.memoriaDisponivel }}</span>
+          </div>          
+          <div class="linha">
+            <span>Memória disponível %:</span>
+            <span>{{ monitor?.memoriaDisponivelPorcentagem }}</span>
+          </div>          
+          <div class="linha sem-borda">
+            <span>Memória ocupada %:</span>
+            <span>{{ monitor?.memoriaOcupadaPorcentagem }}</span>
+          </div>          
+        </div>
+
+        <div class="grafico-wrapper"></div>
+
+        <div class="cpu-wrapper">
+          <div class="linha">
+            <span>Cpu:</span>
+            <span>{{ monitor?.cpuUsoMaquina }}</span>
+          </div>    
+          <div class="linha">
+            <span>Processos:</span>
+            <span>{{ monitor?.qtdProcessos }}</span>
+          </div>          
+          <div class="linha sem-borda">
+            <span>Threads:</span>
+            <span>{{ monitor?.qtdThreads }}</span>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.monitor = monitor;
         setTimeout(() => {
           this.signalRService.buscarMonitor();
-        }, 100);
+        }, 200);
       });
 
     this.signalRService.buscarMonitor();

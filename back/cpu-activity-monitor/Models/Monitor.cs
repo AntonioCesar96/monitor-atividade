@@ -11,6 +11,8 @@ namespace cpu_activity_monitor.Hubs
         public string MemoriaDisponivelPorcentagem { get; set; }
         public string MemoriaOcupadaPorcentagem { get; set; }
         public string CpuUsoMaquina { get; set; }
+        public int QtdProcessos { get; set; }
+        public int QtdThreads { get; set; }
         public List<Processo> Processos { get; set; }
     }
 }

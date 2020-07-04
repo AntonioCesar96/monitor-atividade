@@ -1,6 +1,8 @@
 ﻿using cpu_activity_monitor.Hubs;
 using System;
+using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 
 namespace cpu_activity_monitor.Services
 {
@@ -19,6 +21,10 @@ namespace cpu_activity_monitor.Services
             var occupied = percentOccupied.ToString("F2", CultureInfo.InvariantCulture) + "%";
             var cpuMaquina = new CpuMonitorService().Obter().ToString("F2", CultureInfo.InvariantCulture) + "%";
 
+            Process[] processos = Process.GetProcesses();
+            var countProcess = processos.Length;
+            var countThreads = processos.Sum(x => x.Threads.Count);
+
             return new Monitor()
             {
                 CpuUsoMaquina = cpuMaquina,
@@ -26,7 +32,9 @@ namespace cpu_activity_monitor.Services
                 MemoriaDisponivelPorcentagem = free,
                 MemoriaOcupadaPorcentagem = occupied,
                 MemoriaTotalDoComputador = totalMemory,
-                MemoriaUsada = memoryInUse
+                MemoriaUsada = memoryInUse,
+                QtdProcessos = countProcess,
+                QtdThreads = countThreads,
             };
         }
     }
